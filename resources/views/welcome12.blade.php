@@ -12,17 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="{{ asset('dist/js/bootstrap.bundle.min.js') }}"></script>
 
-    <style>
-        html {
-            min-height: 100%;
-        }
-
-        body {
-            background-repeat: no-repeat;
-            background-image: linear-gradient(#ff8a00, #e52e71);
-        }
-    </style>
-
 </head>
 
 <body>
@@ -55,31 +44,28 @@
         </div>
     </nav>
     <div class="container">
-
-        <div class="col-sm mt-3 justify-content-between shadow-lg p-3 mb-5 bg-body rounded">
-            <div class="row my-3">
-                <h3 class="text-center">{{$meals[0]->strMeal}}</h3>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-3">
-                    <img src='{{$meals[0]->strMealThumb}}' class="card-img-top" alt='' width="80px" height="320px">
-                </div>
-                <div class="col-sm-3">
-                    <p>País de Origem:</p>
-                </div>
-                <div class="col-sm-6 shadow">
-                    <div class="row">
-                        <h3>Instruções</h3>
+        <div class="row mt-3 justify-content-between">
+            @foreach ($meals as $meal)
+            <div class="card mt-3 p-2 shadow rounded" style="width: 18rem;">
+                <img src='{{$meal->strMealThumb}}' class="card-img-top" alt='' width="100px" height="400px">
+                <hr>
+                <div class="card-body">
+                    <h5 class="card-title">{{$meal->strMeal}}</h5>
+                    <p class="card-text"></p>
+                    <p class="text-center text-primary fs-4 fw-bold mb-1">{{$meal->strCategory}}</p>
+                    <div class="form-group">
+                        <p class="text-center fs-6">{{$meal->strArea}}</p>
                     </div>
-                    <div class="row">
-                        <p class="text-justify" style="text-align: justify;">{{$meals[0]->strInstructions}}</p>
-                    </div>
+                    <a href="#" class="justify-content-center">
+                        <div class="text-center p-0 m-0">
+                            <button type="submit" id="insertBtn" class="btn btn-outline-primary">ADICIONAR AO CARRINHO</button>
+                        </div>
+                    </a>
                 </div>
             </div>
+            @endforeach
 
         </div>
-
     </div>
 </body>
 
