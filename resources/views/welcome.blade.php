@@ -5,23 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>MyName</title>
+    <title>The Meal</title>
+    <link rel="stylesheet" href="{{ asset('dist/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('dist/css/bootstrap.min.css') }}">
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="{{ asset('dist/js/bootstrap.bundle.min.js') }}"></script>
-
-    <style>
-        html {
-            min-height: 100%;
-        }
-
-        body {
-            background-repeat: no-repeat;
-            background-image: linear-gradient(#ff8a00, #e52e71);
-        }
-    </style>
+    <script src="{{ asset('dist/js/utils.js') }}"></script>
 
 </head>
 
@@ -54,31 +45,58 @@
             </div>
         </div>
     </nav>
-    <div class="container">
 
-        <div class="col-sm mt-3 justify-content-between shadow-lg p-3 mb-5 bg-body rounded">
-            <div class="row my-3">
-                <h3 class="text-center">{{$meals[0]->strMeal}}</h3>
-            </div>
+    <div class="container-sm">
 
-            <div class="row">
-                <div class="col-sm-3">
-                    <img src='{{$meals[0]->strMealThumb}}' class="card-img-top" alt='' width="80px" height="320px">
-                </div>
-                <div class="col-sm-3">
-                    <p>País de Origem:</p>
-                </div>
-                <div class="col-sm-6 shadow">
-                    <div class="row">
-                        <h3>Instruções</h3>
-                    </div>
-                    <div class="row">
-                        <p class="text-justify" style="text-align: justify;">{{$meals[0]->strInstructions}}</p>
+        <div class="row mt-3 justify-content-between">
+            
+            <div class="modal fade" id="instructionModal" tabindex="-1" aria-labelledby="instructionModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-center" id="instructionModalLabel">Instructions</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <span id="instructionField" style="text-align: justify;"></span>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            @foreach ($meals as $meal)
+
+            <div class="card mt-3 p-2 shadow grad" style="width: 25rem; border-radius: 25%;">
+
+                <img src='{{$meal->strMealThumb}}' class="img-fluid mx-auto d-block rounded mt-3" alt='{{$meal->strMeal}}' width="250px" height="250px">
+
+                <div class="card-body">
+
+                    <div class="row my-1">
+                        <h3 class="text-center">{{$meal->strMeal}}</h3>
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class="col-sm text-center">
+                            Category: {{$meal->strCategory}}
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-sm text-center">
+                            Area: {{$meal->strArea}}
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-sm text-center">
+                            <button type="button" class="btn btn-outline-dark instructionButton" instructionId='{{$meal->idMeal}}'>Instruções</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
 
         </div>
+
 
     </div>
 </body>

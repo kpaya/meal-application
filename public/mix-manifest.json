@@ -2,5 +2,6 @@
     "/dist/css/bootstrap.min.css": "/dist/css/bootstrap.min.css",
     "/dist/css/app.css": "/dist/css/app.css",
     "/dist/js/bootstrap.bundle.min.js": "/dist/js/bootstrap.bundle.min.js",
-    "/dist/js/app.js": "/dist/js/app.js"
+    "/dist/js/app.js": "/dist/js/app.js",
+    "/dist/js/utils.js": "/dist/js/utils.js"
 }

@@ -18,3 +18,4 @@ mix
 // ----------------------------------------------------------------------------
 .scripts(['resources/js/bootstrap.bundle.min.js'], 'public/dist/js/bootstrap.bundle.min.js')
 .scripts(['resources/js/app.js'], 'public/dist/js/app.js')
+.scripts(['resources/js/utils.js'], 'public/dist/js/utils.js')
