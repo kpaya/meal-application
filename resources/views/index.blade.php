@@ -67,7 +67,7 @@
                 @else
                 <div class="col-sm">
                     <div class="row text-center align-middle mt-4 bg-secondary rounded-pill">
-                        <h2>Nenhum resultado encontrado!</h2>
+                        <h2>The meal was not founded!</h2>
                     </div>
                 </div>
                 @endif
