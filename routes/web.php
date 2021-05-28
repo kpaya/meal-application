@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [MealController::class, 'index'])->name('index');
+Route::post('/', [MealController::class, 'searchMeals'])->name('searchItens');
