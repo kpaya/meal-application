@@ -6,6 +6,10 @@ Esse projeto foi construído com o intúito de praticar habilidade no desenvolvi
 <img src="image-p.gif" alt="animated" />
 </p>
 
+### Link de Acesso: [The Meal DB](https://the-meal-book.herokuapp.com/)
+
+---
+
 ## Deploy
 
 Para fazer o deploy desse projeto execute o comando abaixo:
